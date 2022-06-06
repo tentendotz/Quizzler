@@ -24,14 +24,24 @@ class ViewController: UIViewController {
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
-        quizBrain.checkAnswer(userAnswer)
+        
+        let userGotItRight = quizBrain.checkAnswer(userAnswer)
+        if userGotItRight {
+            sender.backgroundColor = UIColor.green
+        } else {
+            sender.backgroundColor = UIColor.red
+        }
+        
         quizBrain.nextQuestion()
+        
         updateUI()
     }
     
     func updateUI() {
         questionLabel.text = quizBrain.getQuestionText()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
+        trueButton.backgroundColor = UIColor.clear
+        falseButton.backgroundColor = UIColor.clear
     }
 
 
