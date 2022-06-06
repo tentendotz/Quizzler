@@ -8,8 +8,10 @@
 import Foundation
 
 struct QuizBrain {
+    
     var questionNumber = 0
     var score = 0
+    var actualAnswer = ""
     
     let quiz = [
         Question(q: "A slug's blood is green.", a: "True"),
@@ -26,5 +28,29 @@ struct QuizBrain {
         Question(q: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", a: "True")
     ]
     
+    mutating func checkAnswer(_ userAnswer: String)  {
+        if userAnswer == actualAnswer {
+            score += 1
+        }
+    }
+    
+    mutating func getScore() -> Int {
+        return score
+    }
+    
+    func getQuestionText() -> String {
+        return quiz[questionNumber].text
+    }
+
+    
+    mutating func nextQuestion() {
+        if questionNumber + 1 < quiz.count {
+            questionNumber += 1
+        } else {
+            questionNumber = 0
+            score = 0
+        }
+    }
+
     
 }

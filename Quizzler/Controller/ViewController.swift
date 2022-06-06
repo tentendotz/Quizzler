@@ -15,43 +15,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     
-    var questionNumber = 0
-    var score = 0
-    var actualAnswer = ""
-    
-     let quiz = [
-     ["Four + Two is equal to Six.", "True"],
-     ["Five - Three is greater than One.", "True"],
-     ["Three + Eight is less than Ten.", "False"]
-     ]
+    var quizBrain = QuizBrain()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionLabel.text = quiz[questionNumber][0]
+        updateUI()
     }
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         let userAnswer = sender.currentTitle!
-        actualAnswer = quiz[questionNumber][1]
-        checkAnswer(userAnswer)
-        questionLabel.text = quiz[questionNumber][0]
+        quizBrain.checkAnswer(userAnswer)
+        quizBrain.nextQuestion()
+        updateUI()
     }
     
-    func checkAnswer(_ userAnswer: String)  {
-        if userAnswer == actualAnswer {
-            score += 1
-        }
-        nextQuestion()
+    func updateUI() {
+        questionLabel.text = quizBrain.getQuestionText()
+        scoreLabel.text = "Score: \(quizBrain.getScore())"
     }
 
-    func nextQuestion() {
-        if questionNumber + 1 < quiz.count {
-            questionNumber += 1
-        } else {
-            questionNumber = 0
-            score = 0
-        }
-    }
-    
+
 }
 
