@@ -34,10 +34,16 @@ class ViewController: UIViewController {
         
         quizBrain.nextQuestion()
         
-        updateUI()
+        Timer.scheduledTimer(
+            timeInterval: 0.2,
+            target: self,
+            selector: #selector(updateUI),
+            userInfo: nil,
+            repeats: false
+        )
     }
     
-    func updateUI() {
+    @objc func updateUI() {
         questionLabel.text = quizBrain.getQuestionText()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
         trueButton.backgroundColor = UIColor.clear
