@@ -46,6 +46,9 @@
                                         <state key="normal" title="Choice1" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r4D-jB-aZs"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiG-fR-hgh" userLabel="Choice2">
                                         <rect key="frame" x="0.0" y="658" width="388" height="80"/>
@@ -57,6 +60,9 @@
                                         <state key="normal" title="Choice2" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LR3-5b-grT"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nc7-EF-Qu4" userLabel="Choice3">
                                         <rect key="frame" x="0.0" y="748" width="388" height="80"/>
@@ -68,6 +74,9 @@
                                         <state key="normal" title="Choice3" backgroundImage="Rectangle">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="answerButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mhz-QZ-Ckc"/>
+                                        </connections>
                                     </button>
                                     <progressView opaque="NO" contentMode="scaleToFill" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="TXm-qh-7Xg">
                                         <rect key="frame" x="0.0" y="838" width="388" height="11"/>
@@ -95,6 +104,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="choice1" destination="Y8U-9b-Icm" id="qf3-92-6Z4"/>
+                        <outlet property="choice2" destination="tiG-fR-hgh" id="bb3-wv-1Es"/>
+                        <outlet property="choice3" destination="Nc7-EF-Qu4" id="nJb-IC-z2u"/>
                         <outlet property="progressBar" destination="TXm-qh-7Xg" id="ZnI-MJ-7b1"/>
                         <outlet property="questionLabel" destination="rSI-li-mhO" id="Qzj-DF-pqO"/>
                         <outlet property="scoreLabel" destination="LOt-zL-wFg" id="V6Y-Qf-DSU"/>
