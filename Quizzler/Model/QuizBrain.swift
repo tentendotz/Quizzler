@@ -25,26 +25,21 @@ struct QuizBrain {
         Question(q: "Where is Tasmania located?", a: ["Indonesia", "Australia", "Scotland"], correctAnswer: "Australia")
     ]
     
-    mutating func checkAnswer(_ userAnswer: String) -> Bool {
-        if userAnswer == quiz[questionNumber].correctAnswer {
-            score += 1
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    mutating func getScore() -> Int {
-        return score
-    }
-    
     func getQuestionText() -> String {
         return quiz[questionNumber].text
+    }
+    
+    func getButtonText() -> [String] {
+        return quiz[questionNumber].answers
     }
     
     func getProgress() -> Float {
         let progress = Float(questionNumber) / Float(quiz.count)
         return progress
+    }
+    
+    mutating func getScore() -> Int {
+        return score
     }
     
     mutating func nextQuestion() {
@@ -53,6 +48,15 @@ struct QuizBrain {
         } else {
             questionNumber = 0
             score = 0
+        }
+    }
+    
+    mutating func checkAnswer(_ userAnswer: String) -> Bool {
+        if userAnswer == quiz[questionNumber].correctAnswer {
+            score += 1
+            return true
+        } else {
+            return false
         }
     }
     
